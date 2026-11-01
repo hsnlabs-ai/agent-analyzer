@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #020617;
+  color: #f1f5f9;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+dialog::backdrop {
+  background-color: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(3px);
+}

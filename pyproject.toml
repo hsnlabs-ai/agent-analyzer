@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling>=1.21.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-analyzer"
+version = "0.1.0"
+description = "Single-probe black-box conversational agent topology mapper (W0-W5) for WhatsApp & LangGraph — by hsnlabs"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Hugo S. Nascimento", email = "hugo@hsnlabs.ai" },
+  { name = "Ednaldo B. Souza Jr.", email = "ednaldo@hsnlabs.ai" },
+]
+keywords = [
+  "agent-analyzer",
+  "langgraph",
+  "whatsapp-bot",
+  "reverse-engineering",
+  "ai-agents",
+  "llm-observability",
+  "black-box-testing",
+  "hsnlabs",
+]
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.30.0",
+  "httpx>=0.27.0",
+  "pydantic>=2.7.0",
+  "python-dotenv>=1.0.1",
+  "langgraph>=0.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "pytest-asyncio>=0.23.6",
+  "ruff>=0.4.0",
+]
+
+[project.urls]
+Homepage = "https://hsnlabs.ai/en/products/agent-analyzer/"
+Organization = "https://hsnlabs.ai"
+Repository = "https://github.com/hsnlabs-ai/agent-analyzer"
+Issues = "https://github.com/hsnlabs-ai/agent-analyzer/issues"
+
+[project.scripts]
+agent-analyzer = "agent_analyzer.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agent_analyzer"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="26" fill="#F8F6F1" stroke="#181613" stroke-width="6"/>
+  <circle cx="64" cy="64" r="44" fill="none" stroke="#C87D12" stroke-width="3" stroke-dasharray="6 5"/>
+  <circle cx="64" cy="64" r="28" fill="none" stroke="#2B5B84" stroke-width="2.5"/>
+  <!-- Directed edges -->
+  <path d="M64 24 L36 62" stroke="#181613" stroke-width="4" stroke-linecap="round"/>
+  <path d="M64 24 L92 62" stroke="#181613" stroke-width="4" stroke-linecap="round"/>
+  <path d="M36 62 L64 102" stroke="#1F6E5A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M92 62 L64 102" stroke="#1F6E5A" stroke-width="4" stroke-linecap="round"/>
+  <!-- Router Node -->
+  <circle cx="64" cy="24" r="10" fill="#C87D12" stroke="#181613" stroke-width="4"/>
+  <!-- Parallel Tool Nodes -->
+  <rect x="24" y="50" width="24" height="24" rx="6" fill="#1F6E5A" stroke="#181613" stroke-width="4"/>
+  <rect x="80" y="50" width="24" height="24" rx="6" fill="#1F6E5A" stroke="#181613" stroke-width="4"/>
+  <!-- Memory Checkpointer Node -->
+  <circle cx="64" cy="102" r="10" fill="#2B5B84" stroke="#181613" stroke-width="4"/>
+</svg>
