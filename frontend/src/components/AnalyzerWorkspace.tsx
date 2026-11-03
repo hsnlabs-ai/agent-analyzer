@@ -60,40 +60,40 @@ export const AnalyzerWorkspace: React.FC<AnalyzerWorkspaceProps> = ({
     null;
 
   return (
-    <div className="flex-1 flex flex-col h-full overflow-hidden bg-slate-950">
+    <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#f5f5f5]">
       {/* Top Action & Status Header */}
-      <header className="flex items-center justify-between px-5 py-3 border-b border-slate-800/90 bg-slate-900/75 flex-wrap gap-3">
+      <header className="flex items-center justify-between px-5 py-3 border-b border-[#e2e8f0] bg-white flex-wrap gap-3">
         <div className="flex items-center gap-3">
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-sm font-bold text-slate-100">{scan.target_name}</h1>
-              <span className="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-cyan-300 border border-slate-700">
+              <h1 className="text-sm font-bold text-[#07090e]">{scan.target_name}</h1>
+              <span className="text-xs font-mono px-2 py-0.5 rounded bg-[#f8fafc] text-[#0284c7] border border-[#cbd5e1]">
                 {scan.target_phone}
               </span>
               <span
-                className={`text-[11px] font-mono px-2 py-0.5 rounded-full border ${
+                className={`text-[11px] font-mono font-semibold px-2 py-0.5 rounded-full border ${
                   scan.transport_mode === "LIVE_WHATSAPP"
-                    ? "bg-emerald-500/15 text-emerald-300 border-emerald-500/40"
-                    : "bg-purple-500/15 text-purple-300 border-purple-500/40"
+                    ? "bg-[#ecfdf5] text-[#047857] border-[#a7f3d0]"
+                    : "bg-[#f0f9ff] text-[#0284c7] border-[#bae6fd]"
                 }`}
               >
                 {scan.transport_mode}
               </span>
               <span
-                className={`text-[11px] font-mono px-2 py-0.5 rounded-full ${
+                className={`text-[11px] font-mono font-semibold px-2 py-0.5 rounded-full border ${
                   scan.status === "RUNNING"
-                    ? "bg-cyan-500/20 text-cyan-300 animate-pulse"
+                    ? "bg-[#f0f9ff] text-[#0284c7] border-[#7dd3fc] animate-pulse"
                     : scan.status === "COMPLETED"
-                    ? "bg-emerald-500/20 text-emerald-300"
+                    ? "bg-[#ecfdf5] text-[#047857] border-[#a7f3d0]"
                     : scan.status === "FAILED"
-                    ? "bg-rose-500/20 text-rose-300"
-                    : "bg-slate-800 text-slate-400"
+                    ? "bg-[#fef2f2] text-[#b91c1c] border-[#fecaca]"
+                    : "bg-[#f8fafc] text-[#64748b] border-[#e2e8f0]"
                 }`}
               >
                 {scan.status} · W{scan.current_wave}/5 (Pass {scan.current_pass}/2)
               </span>
             </div>
-            <p className="text-xs text-slate-400 mt-0.5">{scan.target_description}</p>
+            <p className="text-xs text-[#64748b] mt-0.5">{scan.target_description}</p>
           </div>
         </div>
 
@@ -104,18 +104,18 @@ export const AnalyzerWorkspace: React.FC<AnalyzerWorkspaceProps> = ({
               <button
                 type="button"
                 onClick={onRunAllWaves}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-sm transition-colors"
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#07090e] hover:bg-[#1e293b] text-white shadow-2xs transition-colors"
               >
-                <Play className="w-3.5 h-3.5 fill-current" />
+                <Play className="w-3.5 h-3.5 fill-current text-[#52B4FD]" />
                 <span>Run Full W1–W5 Scan</span>
               </button>
               <button
                 type="button"
                 onClick={onRunNextWave}
                 disabled={scan.current_wave >= 5}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 disabled:opacity-40 text-slate-200 border border-slate-700 transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white hover:bg-[#f8fafc] disabled:opacity-40 text-[#07090e] border border-[#cbd5e1] shadow-2xs transition-colors"
               >
-                <StepForward className="w-3.5 h-3.5 text-cyan-400" />
+                <StepForward className="w-3.5 h-3.5 text-[#0284c7]" />
                 <span>Step W{nextWaveIndex}</span>
               </button>
             </>
@@ -123,7 +123,7 @@ export const AnalyzerWorkspace: React.FC<AnalyzerWorkspaceProps> = ({
             <button
               type="button"
               onClick={onStopScan}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition-colors"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#fffbeb] hover:bg-[#fef3c7] text-[#b45309] border border-[#fde68a] transition-colors"
             >
               <Square className="w-3.5 h-3.5 fill-current" />
               <span>Pause Scan</span>
@@ -133,24 +133,24 @@ export const AnalyzerWorkspace: React.FC<AnalyzerWorkspaceProps> = ({
           <button
             type="button"
             onClick={onResetScan}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium bg-white hover:bg-[#f8fafc] text-[#334155] border border-[#e2e8f0] transition-colors"
             title="Reset to Wave W0"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Reset W0</span>
           </button>
 
-          <div className="h-5 w-px bg-slate-800 mx-1" />
+          <div className="h-5 w-px bg-[#e2e8f0] mx-1" />
 
           {/* 4-Format Post-W5 Export Suite */}
-          <div className="flex items-center gap-1 bg-slate-950/90 p-1 rounded-lg border border-slate-800">
-            <span className="text-[11px] text-slate-400 px-2 flex items-center gap-1">
-              <Download className="w-3 h-3 text-cyan-400" /> Export:
+          <div className="flex items-center gap-1 bg-[#f8fafc] p-1 rounded-lg border border-[#e2e8f0]">
+            <span className="text-[11px] font-medium text-[#64748b] px-2 flex items-center gap-1">
+              <Download className="w-3 h-3 text-[#0284c7]" /> Export:
             </span>
             <button
               type="button"
               onClick={() => onOpenExport("python")}
-              className="flex items-center gap-1 px-2 py-1 rounded text-xs font-mono text-cyan-300 hover:bg-slate-800 transition-colors"
+              className="flex items-center gap-1 px-2 py-1 rounded text-xs font-mono font-medium text-[#0284c7] hover:bg-white transition-colors"
               title="Export Executable LangGraph StateGraph (.py)"
             >
               <FileCode2 className="w-3.5 h-3.5" />
@@ -159,7 +159,7 @@ export const AnalyzerWorkspace: React.FC<AnalyzerWorkspaceProps> = ({
             <button
               type="button"
               onClick={() => onOpenExport("mermaid")}
-              className="flex items-center gap-1 px-2 py-1 rounded text-xs font-mono text-purple-300 hover:bg-slate-800 transition-colors"
+              className="flex items-center gap-1 px-2 py-1 rounded text-xs font-mono font-medium text-[#7e22ce] hover:bg-white transition-colors"
               title="Export Mermaid Flowchart (.mmd)"
             >
               <GitBranch className="w-3.5 h-3.5" />
@@ -168,7 +168,7 @@ export const AnalyzerWorkspace: React.FC<AnalyzerWorkspaceProps> = ({
             <button
               type="button"
               onClick={() => onOpenExport("json")}
-              className="flex items-center gap-1 px-2 py-1 rounded text-xs font-mono text-amber-300 hover:bg-slate-800 transition-colors"
+              className="flex items-center gap-1 px-2 py-1 rounded text-xs font-mono font-medium text-[#b45309] hover:bg-white transition-colors"
               title="Export Full Topology JSON (.json)"
             >
               <FileJson className="w-3.5 h-3.5" />
@@ -177,7 +177,7 @@ export const AnalyzerWorkspace: React.FC<AnalyzerWorkspaceProps> = ({
             <button
               type="button"
               onClick={() => onOpenExport("markdown")}
-              className="flex items-center gap-1 px-2 py-1 rounded text-xs font-mono text-emerald-300 hover:bg-slate-800 transition-colors"
+              className="flex items-center gap-1 px-2 py-1 rounded text-xs font-mono font-medium text-[#047857] hover:bg-white transition-colors"
               title="Export Markdown Diagnostic Report (.md)"
             >
               <FileText className="w-3.5 h-3.5" />
@@ -188,7 +188,7 @@ export const AnalyzerWorkspace: React.FC<AnalyzerWorkspaceProps> = ({
       </header>
 
       {scan.error_message && (
-        <div className="mx-5 mt-3 px-4 py-2.5 rounded-lg bg-rose-950/70 border border-rose-500/50 text-xs text-rose-200 font-mono flex items-center justify-between">
+        <div className="mx-5 mt-3 px-4 py-2.5 rounded-lg bg-[#fef2f2] border border-[#fecaca] text-xs text-[#991b1b] font-mono flex items-center justify-between">
           <span>
             [{scan.error_code ?? "ERROR"}] {scan.error_message}
           </span>
@@ -196,7 +196,7 @@ export const AnalyzerWorkspace: React.FC<AnalyzerWorkspaceProps> = ({
       )}
 
       {/* Main Studio Split Layout */}
-      <div className="flex-1 grid grid-rows-[54%_46%] gap-3 p-4 overflow-hidden">
+      <div className="flex-1 grid grid-rows-[54%_46%] gap-3.5 p-4 overflow-hidden">
         {/* Top Row: Full-Width LangGraph Blueprint Studio */}
         <LangGraphBlueprintStudio
           nodes={topology.nodes}
@@ -210,7 +210,7 @@ export const AnalyzerWorkspace: React.FC<AnalyzerWorkspaceProps> = ({
         />
 
         {/* Bottom Row: Live WhatsApp Probe Transcript (left) + Node Telemetry & Diagnostics (right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5 overflow-hidden">
           <div className="lg:col-span-7 h-full overflow-hidden">
             <LiveProbeTranscript
               turns={turns}

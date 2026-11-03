@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png?v=4" alt="Agent-Analyzer banner" width="100%" style="border-radius: 12px;">
+  <img src="assets/banner.png?v=5" alt="Agent-Analyzer banner" width="100%" style="border-radius: 12px;">
 </p>
 
 <p align="center">
@@ -28,6 +28,12 @@ The system executes the **Two-Pass Sequential Replay Protocol** (`Pass 1 Discove
 3. **Confirmation-Gated Write Dry-Runs (`W3`)** — Discovers transactional order booking and refund nodes while detecting `interrupt_before` human-in-the-loop (HITL) gates without mutating external state.
 4. **Subadditive Parallel Fan-Out (`W4`)** — Proves whether multi-intent turns execute via LangGraph `Send()` parallel fan-out or sequential routing using the subadditivity ratio ($\text{Ratio} = L_{A \wedge B} / (L_A + L_B) \le 0.72$).
 5. **Memory Checkpointer Audit (`W5`)** — Injects canary tokens across conversational interrupts to audit thread memory retention and verify `SqliteSaver` / `PostgresSaver` state persistence.
+
+---
+
+<p align="center">
+  <img src="assets/studio_window.png" alt="Agent Analyzer LangGraph Blueprint Studio" width="100%" style="border-radius: 12px;">
+</p>
 
 ---
 
